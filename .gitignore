@@ -13,5 +13,7 @@ __pycache__/
 /app_cursosit/migrations/*
 /cursosit/__pycache__/
 
+/cursosit/app_cursosit/migrations/
+
 # Ignorar directorios de archivos estáticos compilados
 /cursosit/staticfiles/
