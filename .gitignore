@@ -9,9 +9,9 @@ __pycache__/
 /cursosit/migrations/
 
 # Ignorar directorios específicos dentro de las aplicaciones
-/cursosit/app_cursosit/__pycache__/
-/cursosit/app_cursosit/migrations/__pycache__/
-/cursosit/cursosit/__pycache__/
+/app_cursosit/__pycache__/
+/app_cursosit/migrations/
+/cursosit/__pycache__/
 
 # Ignorar directorios de archivos estáticos compilados
 /cursosit/staticfiles/
