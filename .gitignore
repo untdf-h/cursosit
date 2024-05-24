@@ -1,1 +1,17 @@
-.sqlite3
+# Ignorar archivos generados por Python
+*.pyc
+__pycache__/
+
+# Ignorar el archivo de base de datos SQLite
+*.sqlite3
+
+# Ignorar el directorio de migraciones
+/cursosit/migrations/
+
+# Ignorar directorios específicos dentro de las aplicaciones
+/cursosit/app_cursosit/__pycache__/
+/cursosit/app_cursosit/migrations/__pycache__/
+/cursosit/cursosit/__pycache__/
+
+# Ignorar directorios de archivos estáticos compilados
+/cursosit/staticfiles/
