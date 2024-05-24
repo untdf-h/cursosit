@@ -3,7 +3,7 @@
 __pycache__/
 
 # configuracion
-settings.py
+/cursosit/settings.py
 
 # Ignorar el archivo de base de datos SQLite
 *.sqlite3
