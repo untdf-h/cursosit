@@ -1,3 +1,4 @@
+
 # Ignorar archivos generados por Python
 *.pyc
 __pycache__/
@@ -15,8 +16,6 @@ __pycache__/
 /app_cursosit/__pycache__/
 /app_cursosit/migrations/
 /cursosit/__pycache__/
-
-
 
 # Ignorar directorios de archivos estáticos compilados
 /cursosit/staticfiles/
