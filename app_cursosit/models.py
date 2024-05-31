@@ -29,6 +29,12 @@ class Modulo (models.Model):
     cantidad = models.IntegerField()
     leccion = models.ForeignKey(Leccion,on_delete=models.CASCADE)
 
+
+class CursoManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().all()
+
+
 class Curso (models.Model):
     GRATUITO = 'GR'
     PAGO = 'PA'
@@ -45,6 +51,9 @@ class Curso (models.Model):
     modulo = models.ForeignKey(Modulo, on_delete=models.CASCADE)
     imagen = models.ForeignKey(Imagen, on_delete=models.CASCADE)
 
+    objects = models.Manager()
+    cursos_objects = CursoManager()
+
 class Alumno (User):
     nombre = models.CharField(max_length=30)
     dni = models.BigIntegerField
@@ -55,11 +64,26 @@ class Profesor (User):
     legajo = models.IntegerField()
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
 
+
+class FavoritoManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().all()
+
 class Favorito (models.Model):
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
+    
+    objects = models.Manager()
+    favarito_objects = FavoritoManager()
+
+class BusquedaManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().all()
 
 class Busqueda (models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
+    
+    objects = models.Manager()
+    busqueda_objects = BusquedaManager()
