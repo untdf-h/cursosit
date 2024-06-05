@@ -7,11 +7,14 @@ class Alumno (models.Model):
     nombre = models.CharField(max_length=30)
     dni = models.PositiveBigIntegerField()
     
-
 class Profesor (models.Model):
     profesor = models.OneToOneField(User, on_delete=models.CASCADE)
     legajo = models.IntegerField()
 
+class Categoria (models.Model):
+    nombre = models.CharField(max_length= 20,unique=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    descripcion = models.TextField()
 
 class Pago (models.Model):
     DEBITO = 'DE'
@@ -30,6 +33,11 @@ class CursoManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().all()
 
+class CategoriaManager(models.Manager):
+    def cursos_por_categoria(self):
+        
+        return
+
 
 class Curso (models.Model):
     GRATUITO = 'GR'
@@ -47,7 +55,7 @@ class Curso (models.Model):
     condicion = models.CharField(max_length=2, choices=CONDICION_CHOICES, default=GRATUITO)
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-
+    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
     objects = models.Manager()
     cursos_objects = CursoManager()
     
@@ -88,6 +96,12 @@ class Busqueda (models.Model):
     objects = models.Manager()
     busqueda_objects = BusquedaManager()
 
+class CursosImagenesManage(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().all()
+
+# se ahorra hacer el join entre curso imagen para usando la propiedad vista en la filmina 
+
 class Imagen (models.Model):
     arch_imagen = models.FileField(upload_to='imagenes/')
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
@@ -95,3 +109,6 @@ class Imagen (models.Model):
 class Video (models.Model):
     arch_video = models.FileField(upload_to='videos/')
     video = models.ForeignKey(Leccion, on_delete=models.CASCADE)
+
+
+
