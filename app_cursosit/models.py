@@ -111,6 +111,8 @@ class Busqueda (models.Model):
 class Imagen (models.Model):
     arch_imagen = models.ImageField(upload_to="imagenes", null=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.curso.nombre
 
 class Video (models.Model):
     arch_video = models.FileField(upload_to='videos/')

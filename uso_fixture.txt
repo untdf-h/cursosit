@@ -1,0 +1,15 @@
+1ro instalar users_fixture.json
+2do instalar cursosit_fixture.json
+
+superuser
+username: 
+pass: 
+
+usuarios
+username: usuario1...usuario5
+pass: 
+
+usuario-profesor
+usuario1
+usuario3
+usuario5

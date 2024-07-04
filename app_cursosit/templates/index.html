@@ -4,6 +4,7 @@
 
 {% block main %} 
   <!-- Carrousel Lista de Favoritos -->
+  <div class="container">
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -25,6 +26,7 @@
             <span class="visually-hidden">Next</span>
           </button>
   </div>
+  </div>
   <!-- Cards Cursos por Categoria -->    
   <div class="container">
       <h1>Cursos por Categoría</h1>
@@ -38,7 +40,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ curso.nombre }}</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="{% url 'curso_detalle' curso.id %}" class="btn btn-primary">Go somewhere</a>
+                  <a href="{% url 'curso_detalle' curso.id %}" class="btn btn-primary">Ver</a>
                 </div>
               </div>
             </div>
