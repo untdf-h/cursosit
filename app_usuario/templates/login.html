@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container d-flex justify-content-center mt-5">
+
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="row align-items-center">
+      <h1>Inicia Sesion:</h1>
+      <form method="post">
+        {% csrf_token %}
+
+
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+          <!-- <label class="form-label" for="id_username">Username</label> -->
+          {{ form.username }}
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <!-- <label class="form-label" for="id_password">Password</label> -->
+          {{ form.password }}
+        </div>
+
+        {% if form.errors %}
+        <div class="alert alert-danger">
+          {% for field in form %}
+          {% for error in field.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Signin
+        </button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a href="{% url 'registro_usuario' %}">Register</a></p>
+          <p>or sign up with:</p>
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-google"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+          </button>
+
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-github"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

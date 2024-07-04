@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <h1>Cursos de {{categoria_id.nombre}}</h1>
+    
+      <h2>{{ curso.nombre }}</h2>
+      <div class="row">
+        {% for curso in categoria_cursos %}
+          <div class="col">
+            <div class="card mb-4" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ curso.nombre }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url 'curso_detalle' curso.id %}" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    
+</div>
+{% endblock main %}
